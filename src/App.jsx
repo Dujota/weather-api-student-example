@@ -1,16 +1,18 @@
 import * as weatherService from './services/weatherService';
 
-// src/App.jsx
+import WeatherSearch from './components/WeatherSearch/WeatherSearch';
+
+
 const App = () => {
-  const fetchData = async () => {
-    const data = await weatherService.show('New York');
+  const fetchData = async (city) => {
+    const data = await weatherService.show(city);
     console.log('Data:', data);
   };
 
   return (
     <main>
       <h1>Weather API</h1>
-      <button onClick={fetchData}>Fetch Weather Data</button>
+      <WeatherSearch fetchData={fetchData}/>
     </main>
   );
 };
